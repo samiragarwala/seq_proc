@@ -5,4 +5,4 @@ from proc import Sequence_Processing
 processing = Sequence_Processing()
 
 processing.cram2bam()
-bam2bigWig()
+processing.bam2bigWig()
