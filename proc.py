@@ -38,4 +38,4 @@ class Sequence_Processing:
 		sys.path.insert(0, sys.argv[4])
 
 		#running script for converting bam to bigWig
-		os.system('bam_to_wiggle.py ' + self.bam_name + ' --outfile='+ self.bw_name)
+		os.system('python3 bam_to_wiggle.py ' + self.bam_name + ' --outfile='+ self.bw_name)

@@ -4,5 +4,5 @@ from proc import Sequence_Processing
 
 processing = Sequence_Processing()
 
-processing.cram2bam()
+# processing.cram2bam()
 processing.bam2bigWig()
