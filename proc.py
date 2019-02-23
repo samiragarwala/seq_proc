@@ -3,7 +3,6 @@ import os
 import numpy as np
 import pysam
 
-
 class Sequence_Processing:
 
 	def __init__(self):
@@ -22,7 +21,8 @@ class Sequence_Processing:
 		samfile = pysam.AlignmentFile(self.filename, "rc")
 
 		#creating output bam file
-		outfile = pysam.AlignmentFile(self.bam_name, "wb", template = samfile)
+		outfile = pysam.AlignmentFile(self.bam_name, "wb", header = samfile.header)
+		# outfile = pysam.AlignmentFile(self.bam_name, "wb", header = samfile.header, template=samfile)
 
 		#writing each read to bam file
 		for read in samfile:
@@ -31,11 +31,15 @@ class Sequence_Processing:
 		outfile.close()
 		samfile.close()
 
+		pysam.index(self.bam_name)
+
+		print('BAM File Created')
+
 	def bam2bigWig(self):
 
-		# adding local path to cloned GitHub repo (https://github.com/chapmanb/bcbb)
-		#local path: '/Users/Samir/desktop/ParkerLab/Libaries/bcbb/nextgen/scripts/'
-		sys.path.insert(0, sys.argv[4])
+		#function for converting bam to bigWig
 
-		#running script for converting bam to bigWig
-		os.system('python3 bam_to_wiggle.py ' + self.bam_name + ' --outfile='+ self.bw_name)
+		#install pyGenomeTracks library before use
+		os.system('bamCoverage -b ' + self.bam_name + ' -o ' + self.bw_name)
+
+		print('BigWig File Created')
