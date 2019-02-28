@@ -5,4 +5,7 @@ from proc import Sequence_Processing
 processing = Sequence_Processing()
 
 processing.cram2bam()
-processing.bam2bigWig()
+# processing.bam2bigWig()
+
+# Convert BAM to BedGraph using bedtools: genomeCoverageBed -ibam seq.bam -bg -trackline -split -g ... > out.bedGraph
+# Convert BedGraph to BigWig: bedGraphToBigWig out.bedGraph chrom.sizes out.bw

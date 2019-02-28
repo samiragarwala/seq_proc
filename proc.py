@@ -35,11 +35,11 @@ class Sequence_Processing:
 
 		print('BAM File Created')
 
-	def bam2bigWig(self):
+	# def bam2bigWig(self):
 
-		#function for converting bam to bigWig
+	# 	#function for converting bam to bigWig
 
-		#install pyGenomeTracks library before use
-		os.system('bamCoverage -b ' + self.bam_name + ' -o ' + self.bw_name)
+	# 	#install pyGenomeTracks library before use
+	# 	os.system('bamCoverage -b ' + self.bam_name + ' -o ' + self.bw_name)
 
-		print('BigWig File Created')
+	# 	print('BigWig File Created')
