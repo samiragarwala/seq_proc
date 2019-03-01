@@ -42,18 +42,21 @@ class Sequence_Processing:
 		print('Created BedGraph File')
 
 		# sorting bedGraph file
-		os.system('sortBed -i ' + bw_path + '.bedGraph') 
+		os.system('sort -k1,1 -k2,2n ' + bw_path + '.bedGraph' + ' > ' + bw_path + '_sorted.bedGraph') 
+		print('Sorted BedGraph File')
 
-		#deleting last line of bed graph file 
-		# os.system('sed -i '$ d' ' + bw_path + '.bedGraph' )
+		#deleting empty last line of BedGraph file which comes after sorting
+		os.system('sed -ie '$d' ' + bw_path + '_sorted.bedGraph')
+		print('Processed BedGraph File')
 
-		os.system(self.u_path + ' ' + bw_path +  '.bedGraph ' + self.chrom + ' ' + bw_path + '.bw')
+		os.system(self.u_path + ' ' + bw_path +  '_sorted.bedGraph ' + self.chrom + ' ' + bw_path + '.bw')
 		print('Created BigWig File')
 
 		os.system('sudo rm ' + bw_path + '.bedGraph')
+		os.system('sudo rm ' + bw_path + '_sorted.bedGraph')
 		os.system('sudo rm ' + bw_path + '.bam')
 		os.system('sudo rm ' + bw_path + '.bam.bai')
-		print('Deleted BedGraph and BAM data files')
+		print('Deleted BedGraph and BAM data files \n')
 
 
 

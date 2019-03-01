@@ -25,7 +25,7 @@ for filename in glob.glob(os.path.join(cram, '*.cram')):
 	
 	# counting number of files
 	count = count + 1
-	print('File ' + str(count))
+	print('\033[1m' + 'File ' + str(count) + '\033[0m')
 
 	head, tail = os.path.split(filename)
 	name,extension = os.path.splitext(tail)
