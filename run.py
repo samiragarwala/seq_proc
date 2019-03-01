@@ -1,4 +1,4 @@
-# To run file: python2.7 run.py /Users/Samir/desktop/ParkerLab/HG00247.cram seq.bam out.bw
+# To run file: python run.py <CRAM File Directory> <BW File Directory> <Path to bedGraphToBigWig> <Path to Chromosome sizes file>
 
 from proc import Sequence_Processing
 import sys

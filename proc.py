@@ -44,6 +44,9 @@ class Sequence_Processing:
 		# sorting bedGraph file
 		os.system('sortBed -i ' + bw_path + '.bedGraph') 
 
+		#deleting last line of bed graph file 
+		# os.system('sed -i '$ d' ' + bw_path + '.bedGraph' )
+
 		os.system(self.u_path + ' ' + bw_path +  '.bedGraph ' + self.chrom + ' ' + bw_path + '.bw')
 		print('Created BigWig File')
 
