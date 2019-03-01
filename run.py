@@ -25,19 +25,14 @@ for filename in glob.glob(os.path.join(cram, '*.cram')):
 	
 	# counting number of files
 	count = count + 1
-	print('File ' + count)
+	print('File ' + str(count))
 
-	head, tail = os.path.split(file_name)
+	head, tail = os.path.split(filename)
 	name,extension = os.path.splitext(tail)
 
 	processing.cram2bam(filename, bw + '/' + name )
 
 	processing.bam2bigWig(bw + '/' + name)
-
-
-
-# processing.cram2bam()
-# processing.bam2bigWig()
 
 # Convert BAM to BedGraph using bedtools: genomeCoverageBed -ibam seq.bam -bg -trackline -split -g ... > out.bedGraph
 # Convert BedGraph to BigWig: bedGraphToBigWig out.bedGraph chrom.sizes out.bw
