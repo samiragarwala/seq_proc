@@ -1,10 +1,42 @@
 # To run file: python2.7 run.py /Users/Samir/desktop/ParkerLab/HG00247.cram seq.bam out.bw
 
 from proc import Sequence_Processing
+import sys
+import os
+import glob
 
-processing = Sequence_Processing()
+#directory to cram files 
+cram = sys.argv[1]
 
-processing.cram2bam()
+#directory to save big wig files
+bw = sys.argv[2]
+
+# path to unix executable bedGraphToBigWig
+exe = sys.argv[3]
+
+# path to chromosome sizes file
+sizes = sys.argv[4]
+
+processing = Sequence_Processing(exe,sizes)
+
+count = 0;
+
+for filename in glob.glob(os.path.join(cram, '*.cram')):
+	
+	# counting number of files
+	count = count + 1
+	print('File ' + num)
+
+	head, tail = os.path.split(file_name)
+	name,extension = os.path.splitext(tail)
+
+	processing.cram2bam(filename, bw + '/' + name )
+
+	processing.bam2bigWig(bw + '/' + name)
+
+
+
+# processing.cram2bam()
 # processing.bam2bigWig()
 
 # Convert BAM to BedGraph using bedtools: genomeCoverageBed -ibam seq.bam -bg -trackline -split -g ... > out.bedGraph
