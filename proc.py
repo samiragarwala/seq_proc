@@ -46,7 +46,7 @@ class Sequence_Processing:
 		print('Sorted BedGraph File')
 
 		#deleting empty last line of BedGraph file which comes after sorting
-		os.system('sed -ie '$d' ' + bw_path + '_sorted.bedGraph')
+		os.system("sed -ie '$d' " + bw_path + '_sorted.bedGraph')
 		print('Processed BedGraph File')
 
 		os.system(self.u_path + ' ' + bw_path +  '_sorted.bedGraph ' + self.chrom + ' ' + bw_path + '.bw')
