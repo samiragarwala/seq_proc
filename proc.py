@@ -54,6 +54,7 @@ class Sequence_Processing:
 
 		os.system('sudo rm ' + bw_path + '.bedGraph')
 		os.system('sudo rm ' + bw_path + '_sorted.bedGraph')
+		os.system('sudo rm ' + bw_path + '_sorted.bedGraphe')
 		os.system('sudo rm ' + bw_path + '.bam')
 		os.system('sudo rm ' + bw_path + '.bam.bai')
 		print('Deleted BedGraph and BAM data files \n')
