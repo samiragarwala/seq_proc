@@ -52,11 +52,11 @@ class Sequence_Processing:
 		os.system(self.u_path + ' ' + bw_path +  '_sorted.bedGraph ' + self.chrom + ' ' + bw_path + '.bw')
 		print('Created BigWig File')
 
-		os.system('sudo rm ' + bw_path + '.bedGraph')
-		os.system('sudo rm ' + bw_path + '_sorted.bedGraph')
-		os.system('sudo rm ' + bw_path + '_sorted.bedGraphe')
-		os.system('sudo rm ' + bw_path + '.bam')
-		os.system('sudo rm ' + bw_path + '.bam.bai')
+		os.system('rm ' + bw_path + '.bedGraph')
+		os.system('rm ' + bw_path + '_sorted.bedGraph')
+		os.system('rm ' + bw_path + '_sorted.bedGraphe')
+		os.system('rm ' + bw_path + '.bam')
+		os.system('rm ' + bw_path + '.bam.bai')
 		print('Deleted BedGraph and BAM data files \n')
 
 
